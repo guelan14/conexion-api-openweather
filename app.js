@@ -13,7 +13,7 @@ app.get("/",function (req,res){
 
 app.post("/",function(req,res){
     const query=req.body.cityName;
-    const apiKey="9c47b155508afcc43a93ef12e3593837";
+    const apiKey="";
     const url= "https://api.openweathermap.org/data/2.5/weather?q="+query+",%20AR&APPID="+apiKey;
 
     https.get(url,function(response){
@@ -21,7 +21,7 @@ app.post("/",function(req,res){
             const weatherData = JSON.parse(data);
             const temp=weatherData.main.temp-273;
             const weatherDescription=weatherData.weather[0].description;
-            res.send("The temperature in Posadas is"+temp+" Grados");
+            res.send("The temperature in Posadas is "+temp+" Grados");
             });
         });
     });
